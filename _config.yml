@@ -32,7 +32,7 @@ disqus_shortname:   mispyrou
 # if you don't have any of social below, comment the line.
 #google:
   #plus:            #username
-  #analytics:
+  analytics:        UA-112445278-1
   #verify:
   #ad-client:
   #ad-slot:
