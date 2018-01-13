@@ -16,10 +16,10 @@ Recently I took part in a challenge organized by ARM Ltd which involved using a 
 
 You can find more info about the EMG sensors and how they are connected to the micro:bit here.
 
-Bluetooth low energy
+##Bluetooth low energy
 BBC micro:bit comes with a Bluetooth low energy (BLE) antenna, which is designed for reduced power consumption thus making it perfect for our use as we need to continuously transmit EMG sensor data. The micro:bit is configured as a server that waits for GATT requests and sends data, and our android phone is the client that initiates the connection and receives the data from the EMG sensor.  We use Nordic’s nRF UART over BLE in order to transmit data.
 
-Transmitting data through RX Characteristic
+##Transmitting data through RX Characteristic
 Connecting the phone with the micro:bit is pretty trivial on Android. There is a code sample from Google and you can find all the required information on their developer site.
 
 First we have to scan for the avaiable devices and then select the one we want to connect to (in our case micro:bit). After the connection is initialized we enable indication by enabling ENABLE_INDICATION_VALUE flag and we wait for data sent from micro:bit. Data are sent to RX Characteristic (UUID: 6E400003-B5A3-F393-E0A9-E50E24DCCA9E) and then data are plotted to the phone screen using Graphview.
