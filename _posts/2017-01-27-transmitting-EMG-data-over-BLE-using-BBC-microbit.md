@@ -33,5 +33,5 @@ Here are some pictures and a video of how things look when everything is connect
 	<figcaption>Prototype of our design.</figcaption>
 </figure>
 
-<iframe width="560" height="315" src="//http://www.youtube.com/watch?v=8L-78S_hh5o" frameborder="0"> </iframe>
+<iframe width="560" height="315" src="//www.youtube.com/embed/watch?v=8L-78S_hh5o" frameborder="0"> </iframe>
 
