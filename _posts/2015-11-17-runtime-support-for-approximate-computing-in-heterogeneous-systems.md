@@ -7,12 +7,12 @@ tag:
 - projects
 comments: true
 ---
-Recently I finished my MSc Thesis, titled “Runtime support for approximate computing in heterogeneous systems”. I developed a run-time system in C programming language that supports approximate  computations using OpenCL. You can download my thesis here.
+Recently I finished my MSc Thesis, titled “Runtime support for approximate computing in heterogeneous systems”. I developed a run-time system in C programming language that supports approximate  computations using OpenCL. You can download my thesis <a href="{{assets/files/msc_thesis.pdf}}">here</a>.
 
 Source code will be available in a few weeks.
-<div align="center">
- ## Abstract
-</div>
+<center>
+ ### Abstract
+</center>
 
 Energy efficiency is the most important aspect in nowadays systems, ranging from embedded devices to high performance computers. However, the end of Dennard scaling limits expectations for energy efficiency improvements in future devices, despite manufacturing processors in lower geometries and lowering supply voltage. Many recent systems use a wide range of power managing techniques, such as DFS and DVFS, in order to balance the demanding needs for higher performance/throughput with the impact of aggressive power consumption and negative thermal effects. However these techniques have their limitations when it comes to CPU intensive workloads.
 
