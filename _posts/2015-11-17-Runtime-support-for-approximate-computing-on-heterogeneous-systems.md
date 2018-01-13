@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Runtime support for approximate computing in heterogeneous systems"
-date:   2017-01-27
+date:   2015-11-17
 excerpt: "MSc thesis"
 tag:
 - projects
