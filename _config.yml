@@ -1,6 +1,6 @@
 # Site
 title:              Michalis Spyrou
-bio:                'Software Engineer'
+bio:                'Software Engineer based in the United Kingdom'
 description:        "My interests focus on performance improvement and power efficiency on embedded and heterogeneous systems and also parallel programming for multicore and manycore systems. Also interested in computer security, mainly as a hobby."
 reading_time:       true
 words_per_minute:   200
@@ -37,19 +37,12 @@ google:
   #ad-client:
   #ad-slot:
 #bing-verify:
-#email:
+email:              mispyrou@gmail.com
 twitter:            mpekatsoula
 github-url:         mpekatsoula
-#stackoverflow:     123456/username   from a "http://stackoverflow.com/users/123456/username" link
 linkedin:           michalis-spyrou-86635b57
 #xing:              username
 #instagram:          username
-#weibo:             username
-#flickr:            username
-#codepen:           username
-#keybase:           username
-#xmpp:              username@server.com
-#hackernews:        username
 
 # Gems
 gems:
