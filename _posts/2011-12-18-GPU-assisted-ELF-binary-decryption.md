@@ -3,6 +3,7 @@ layout: post
 title:  "GPU assisted ELF binary decryption"
 date:   2011-12-18
 excerpt: "Decrypt an ELF binary using CUDA at runtime"
+feature: assets/images/runtime_adaption.png
 tag:
 - CUDA
 - GPU
