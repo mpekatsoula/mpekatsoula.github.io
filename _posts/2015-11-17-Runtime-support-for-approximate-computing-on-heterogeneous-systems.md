@@ -3,6 +3,7 @@ layout: post
 title:  "Runtime support for approximate computing in heterogeneous systems"
 date:   2015-11-17
 excerpt: "MSc thesis"
+feature: assets/images/runtime_adaption.png
 tag:
 - projects
 comments: true
