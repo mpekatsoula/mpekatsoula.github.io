@@ -2,7 +2,7 @@
 layout: post
 title:  "Transmitting EMG data over BLE using BBC micro:bit"
 date:   2017-01-27
-excerpt: "Custom written post descriptions are the way to go... if you're not lazy."
+excerpt: "Using a micro::bit for transmitting and an Android smartphone for displaying EMG data"
 tag:
 - projects
 comments: true
